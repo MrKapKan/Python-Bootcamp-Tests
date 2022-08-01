@@ -8,5 +8,5 @@ def hash_func(text: str):
     return hex_dig
 
 
-s = "Hello World"
-# print(hash_func(s))
+s = "Python Bootcamp"
+print(hash_func(s))
