@@ -4,7 +4,7 @@ import os
 
 
 class GetTikTok:
-    """Сlass accesses the tiktok api by the video url. Download video and save as mp4 file"""
+    """Сlass accesses the tiktok api. Download video and save as mp4 file"""
     @classmethod
     def download(cls, url):
         """Download TikTok video by url"""
