@@ -1,12 +1,14 @@
+from abstract_for_video import *
 from TikTokApi import TikTokApi
 from moviepy.editor import VideoFileClip
 import os
 
 
-class GetTikTok:
+class GetTikTok(GetVideoFrom):
     """Сlass accesses the tiktok api. Download video and save as mp4 file"""
+
     @classmethod
-    def download(cls, url):
+    def download_by_url(cls, url):
         """Download TikTok video by url"""
         api = TikTokApi()
 
@@ -16,10 +18,10 @@ class GetTikTok:
             raise ConnectionError('Something go wrong, check url')
 
         video_data = video.bytes()
-        cls.save_video(video_data)
+        cls.save_video_to_file(video_data)
 
     @staticmethod
-    def save_video(video):
+    def save_video_to_file(video):
         """Save TikTok video into mp4 file"""
         with open("some_video.mp4", "wb") as out_file:
             out_file.write(video)
@@ -50,10 +52,11 @@ class VideoToGif:
         return path
 
 
-some_tiktok = 'https://www.tiktok.com/@humaidalbuqaish/video/7122479241765113089?is_from_webapp=1&sender_device=pc'
-GetTikTok.download(some_tiktok)
+some_tiktok = 'https://www.tiktok.com/@notjasonprt1/video/7065459675273415982'
+GetTikTok.download_by_url(some_tiktok)
 print(VideoToGif.path_return())
 
-some_tiktok = 'https://www.tiktok.com/@coopers.angelss/video/7121173151890803969?is_from_webapp=1&sender_device=pc'
-GetTikTok.download(some_tiktok)
+some_tiktok = 'https://www.tiktok.com/@artemmihas_1/video/7103035022675922182'
+GetTikTok.download_by_url(some_tiktok)
 print(VideoToGif.path_return())
+
